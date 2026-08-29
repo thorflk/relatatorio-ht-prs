@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório Completo — Hotéis em Paris</title>
+<style>
+    :root {
+        --wine: #7A1F3D;
+        --navy: #1b3a5c;
+        --green: #2e8b57;
+        --yellow: #c98a1d;
+        --red: #b03a2e;
+        --blue: #2563a6;
+        --alert: #8a1c1c;
+    }
+    * { box-sizing: border-box; }
+    body {
+        font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #262626;
+        background: #f7f5f2;
+        margin: 0;
+        padding: 0;
+    }
+    .wrap {
+        max-width: 880px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 40px 44px 70px;
+        box-shadow: 0 0 40px rgba(0,0,0,0.06);
+    }
+    h1 {
+        color: var(--wine);
+        border-bottom: 4px solid var(--wine);
+        padding-bottom: 12px;
+        font-size: 30px;
+        margin-bottom: 4px;
+    }
+    h1 + p {
+        margin-top: 4px;
+        color: #666;
+        font-size: 15px;
+    }
+    h2 {
+        font-size: 20px;
+        margin-top: 44px;
+        padding: 12px 18px;
+        border-radius: 8px;
+        color: white;
+        letter-spacing: 0.2px;
+    }
+    h2.group-green { background: linear-gradient(135deg, #2e8b57, #256e46); }
+    h2.group-yellow { background: linear-gradient(135deg, #c98a1d, #a86e12); }
+    h2.group-red { background: linear-gradient(135deg, #b03a2e, #8a2c22); }
+    h2.group-blue { background: linear-gradient(135deg, #2563a6, #1c4c82); }
+    h2.group-alert { background: linear-gradient(135deg, #8a1c1c, #6b1414); }
+    h2.group-default { background: #555; }
+
+    h3 {
+        font-size: 18px;
+        color: var(--navy);
+        margin-top: 34px;
+        margin-bottom: 10px;
+        border-left: 6px solid var(--navy);
+        padding: 8px 14px;
+        background: #eef3f8;
+        border-radius: 0 6px 6px 0;
+    }
+    .hotel-photo {
+        width: 100%;
+        margin: 0 0 16px 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+        background: #ddd;
+        aspect-ratio: 16/8;
+    }
+    .hotel-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    strong { color: var(--wine); }
+    blockquote {
+        background: #fff8e1;
+        border-left: 5px solid #e8a33d;
+        margin: 14px 0;
+        padding: 10px 16px;
+        font-size: 14px;
+        color: #5c4a1a;
+        border-radius: 0 6px 6px 0;
+    }
+    hr {
+        border: none;
+        border-top: 1px solid #e2e2e2;
+        margin: 30px 0;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+        margin: 18px 0;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    th {
+        background-color: var(--navy);
+        color: white;
+        padding: 8px 8px;
+        text-align: left;
+        position: sticky;
+        top: 0;
+    }
+    td {
+        padding: 7px 8px;
+        border-bottom: 1px solid #e5e5e5;
+        vertical-align: top;
+        white-space: normal;
+    }
+    tr:nth-child(even) td { background-color: #f7f9fb; }
+    ul, ol { margin: 8px 0; padding-left: 24px; }
+    li { margin-bottom: 5px; }
+    p { margin: 8px 0; }
+    em { color: #555; }
+    @media (max-width: 600px) {
+        .wrap { padding: 24px 18px 50px; }
+        h1 { font-size: 24px; }
+    }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Relatório Completo — Hotéis em Paris (21 a 26 de Janeiro)</h1>
+<p><em>Casal · Orçamento: R$3.000 para as 5 noites</em></p>
+<blockquote>
+<p>⚠️ <strong>Sobre distâncias de metrô/Louvre/Torre Eiffel:</strong> os tempos abaixo são estimativas baseadas em rota típica de metrô e ritmo de caminhada padrão (~5km/h) — não são cravados no minuto, porque isso varia com a plataforma, transbordo, etc. Para o trajeto exato no dia, usem Citymapper ou Google Maps. Mas servem perfeitamente para comparar as opções entre si.</p>
+<p>⚠️ <strong>Sobre as "notas":</strong> os sites de agregação (Kayak, Hotels.com, Expedia) usam escalas diferentes do Booking. Por isso, o foco deste relatório não é a nota — é o <strong>conteúdo real das avaliações</strong> e a <strong>segurança comprovada da região</strong>, cruzando notícias, matérias jornalísticas e relatos de hóspedes.</p>
+</blockquote>
+<hr />
+<h2 class="group-alert">🚨 Contexto de segurança de Paris (leiam antes dos hotéis)</h2>
+<ul>
+<li><strong>Barbès–Rochechouart, Château Rouge, Goutte d'Or (18º arr.)</strong>: zona classificada oficialmente como "zone de sécurité prioritaire" (segurança reforçada por índice alto de criminalidade). Comércio de drogas ao redor das saídas de metrô, venda de produtos roubados, mendicância forte. Documentado e real, não é exagero de blog.</li>
+<li><strong>Stalingrad / La Chapelle / Porte de la Chapelle (fronteira 10º-18º-19º)</strong>: é aqui que fica a famosa <strong>"Colline du crack"</strong> — um ponto de tráfico e uso de crack a céu aberto desde os anos 2000. <strong>A "colina" em si é literalmente um talude ao lado de um viaduto/ponte do périphérique</strong> (por isso o alerta que vocês receberam sobre "ponte perigosa" faz todo sentido — é exatamente essa estrutura). Já foi desmontada pela polícia mais de 15 vezes, mas sempre volta a se formar nas redondezas (confirmado em matérias de 2025/2026, migrando entre Porte de la Chapelle, Porte d'Aubervilliers e Gare Rosa Parks).</li>
+<li><strong>Entorno da Gare du Nord</strong>: fluxo grande de gente atrai mendigos e pequenos golpistas.</li>
+<li><strong>19º arrondissement</strong>: citado em guias de segurança como um dos arrondissements mais sensíveis — mas isso varia MUITO dependendo da parte exata (Canal Saint-Martin/Buttes-Chaumont é bem diferente da área perto de Stalingrad/Jean Jaurès sul).</li>
+<li><strong>Verifiquei também pontes/passagens especificamente perto de cada hotel da lista</strong> (não só o bairro) — resultado detalhado em cada hotel abaixo.</li>
+</ul>
+<p>Isso não significa que são "zonas de guerra" — milhões circulam ali todo dia. Mas para vocês voltando de um jantar à noite, é um fator real.</p>
+<hr />
+<h2 class="group-green">🟢 GRUPO 1 — Região segura, sem red flags relevantes</h2>
+<h3>1. Hôtel du Jardin des Plantes — R$3.050 (5º arr., Quartier Latin)</h3><div class="hotel-photo"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/36/ab/7b/hotel-jardin-des-plantes.jpg?w=900&h=500&s=1" alt="Hôtel du Jardin des Plantes" loading="lazy"></div>
+<p><strong>Endereço:</strong> 5 Rue Linné, 75005 Paris<br />
+<strong>Metrô mais próximo:</strong> Place Monge (3 min a pé) / Jussieu (3 min a pé)<br />
+<strong>Até o Louvre:</strong> ~25 min a pé · ~12-15 min de metrô (linha 7, direto, ~6 estações)<br />
+<strong>Até a Torre Eiffel:</strong> ~65-70 min a pé (longe demais pra ir andando) · ~30 min de metrô (1 baldeação)<br />
+<strong>Segurança nas redondezas:</strong> nenhuma ponte, viaduto ou ponto de risco conhecido nos arredores. Região universitária, uma das mais seguras de Paris.</p>
+<p><strong>⚠️ Reclamações reais recorrentes no TripAdvisor (nota 3,3/5, #1.422 de 1.885 hotéis):</strong><br />
+- 🔴 "The worst hotel" (ago/2026): fungo no chuveiro, manchas na cama e paredes, atendimento péssimo<br />
+- 🔴 "Too dirty!" (jun/2026): corredores com carpete imundo, sujeira nunca limpa embaixo da cama<br />
+- 🔴 "Disaster shower" (set/2025): mofo nas juntas do box, AC quebrado sem conserto<br />
+- 🔴 Tentativa de cobrar a taxa de turismo duas vezes de um hóspede<br />
+- 🟢 Localização unânime como excelente<br />
+- 🟢 Quartos pequenos mas "confortáveis" nos relatos mais recentes (2026)</p>
+<p><strong>Veredito:</strong> localização imbatível e segura, mas os relatos de limpeza são recorrentes demais pra ignorar.</p>
+<hr />
+<h3>2. ibis Paris Nation Davout — R$2.850 (20º arr.)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/1000000/60000/53600/53580/1f1f4c1d.jpg" alt="ibis Paris Nation Davout" loading="lazy"></div>
+<p><strong>Endereço:</strong> 110 Rue des Orteaux, 75020 Paris<br />
+<strong>Metrô mais próximo:</strong> Porte de Montreuil (3 min a pé)<br />
+<strong>Até o Louvre:</strong> ~1h10 a pé · ~25-28 min de metrô (linha 9, 1 baldeação em Châtelet-área)<br />
+<strong>Até a Torre Eiffel:</strong> ~35-40 min de metrô (1-2 baldeações)<br />
+<strong>Segurança nas redondezas:</strong> nenhum ponto de risco identificado. Região residencial tranquila.<br />
+- 🟢 "Great breakfast", "clean room", "friendly staff" — recorrente<br />
+- 🟡 "Área não é a mais limpa visualmente, mas perto do metrô" (estética de rua, não insegurança)<br />
+- 🟢 Reformado em 2023</p>
+<p><strong>Veredito:</strong> provavelmente a opção mais "sem sobressaltos" dentro do orçamento.</p>
+<hr />
+<h3>3. Ibis Budget Paris La Villette 19ème — R$2.200 (19º arr.)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/15000000/14780000/14771500/14771489/53ae4a80.jpg" alt="Ibis Budget Paris La Villette 19ème" loading="lazy"></div>
+<p><strong>Endereço:</strong> 57-63 Avenue Jean Jaurès, 75019 Paris<br />
+<strong>Metrô mais próximo:</strong> Laumière (3 min a pé)<br />
+<strong>Até o Louvre:</strong> ~50 min a pé · ~25 min de metrô (linha 5, 1 baldeação)<br />
+<strong>Até a Torre Eiffel:</strong> ~40-45 min de metrô (2 baldeações)<br />
+<strong>Segurança nas redondezas:</strong> verifiquei especificamente a região do Canal de l'Ourcq e o Pont Levant de la Rue de Crimée (ponte histórica do canal) — não há relatos de insegurança associados a essa ponte específica; ela fica, além disso, mais ao norte (perto do metrô Corentin Cariou), fora do raio de caminhada do hotel. O ponto de atenção real é mais ao <strong>sul</strong>, na direção da praça Stalingrad/Jean Jaurès (essa sim é zona de tráfico) — mas fica a várias estações de metrô de distância do hotel, não a 3 minutos.<br />
+- 🟢 Reviews consistentemente positivas: "great stay", "clean, easily reachable"<br />
+- 🟡 Quartos pequenos e básicos (rede budget)</p>
+<p><strong>Veredito:</strong> bom hotel. Só evitem caminhar em direção ao sul/Stalingrad à noite — indo para Buttes-Chaumont/norte está tranquilo.</p>
+<hr />
+<h3>4. Appart'hôtel Odalys City XVII — R$2.700 (17º arr.)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/24000000/23190000/23189200/23189184/a0182765.jpg" alt="Appart'hôtel Odalys City XVII" loading="lazy"></div>
+<p><strong>Endereço:</strong> Rue Hélène et François Missoffe, 75017 Paris<br />
+<strong>Metrô/tram mais próximo:</strong> Épinettes–Pouchet (tram, 6 min a pé)<br />
+<strong>Até o Louvre:</strong> ~55 min a pé · ~25-28 min de metrô (1 baldeação)<br />
+<strong>Até a Torre Eiffel:</strong> ~30 min de metrô (1 baldeação)<br />
+<strong>Segurança nas redondezas:</strong> nenhum ponto de risco encontrado. 17º é bairro seguro, essa parte específica (Épinettes) é mais periférica mas sem histórico de insegurança.<br />
+- 🟢 Kitchenette completa (economia com refeições)<br />
+- 🟢 "Very nice hotel at reasonable price"<br />
+- 🟡 Devolução do depósito de caução demorada em algumas reviews<br />
+- 🟡 Mais distante do circuito turístico clássico</p>
+<p><strong>Veredito:</strong> seguro, mas o mais "fora do circuito" da lista.</p>
+<hr />
+<h3>5. ibis Paris Maine Montparnasse — R$3.400 (14º arr., acima do orçamento)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/1000000/30000/20700/20697/5732b626.jpg" alt="ibis Paris Maine Montparnasse" loading="lazy"></div>
+<p><strong>Endereço:</strong> 160 Rue du Château, 75014 Paris<br />
+<strong>Metrô mais próximo:</strong> Pernety (3 min a pé)<br />
+<strong>Até o Louvre:</strong> ~50 min a pé · ~20 min de metrô (linha 13, 1 baldeação)<br />
+<strong>Até a Torre Eiffel:</strong> ~40 min a pé · ~20-25 min de metrô (1 baldeação)<br />
+<strong>Segurança nas redondezas:</strong> nenhum ponto de risco identificado. Montparnasse é região central, tranquila, sem alertas.<br />
+- 🟢 "Friendly staff", "very good position", "great breakfast" — muito consistente<br />
+- 🟢 Nenhuma reclamação de segurança ou sujeira<br />
+- 🟡 Sem geladeira no quarto</p>
+<p><strong>Veredito:</strong> conjunto de reviews mais consistentemente positivo dos hotéis de rede, sem nenhum alerta.</p>
+<hr />
+<h3>6. Aparthotel Adagio Access Paris Vanves Porte de Châtillon — R$2.700 (Vanves, Hauts-de-Seine — <strong>fora de Paris</strong>)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/2000000/1330000/1329100/1329009/94aaa46b.jpg" alt="Aparthotel Adagio Access Vanves Porte de Châtillon" loading="lazy"></div>
+<p><strong>Endereço:</strong> 5 Rue Aristide Briand, 92170 Vanves<br />
+<strong>Metrô mais próximo:</strong> Malakoff–Rue Étienne Dolet (linha 13) — poucos minutos a pé<br />
+<strong>Até o Louvre:</strong> ~1h20 a pé (não é opção) · ~30 min de metrô (linha 13, 1 baldeação)<br />
+<strong>Até a Torre Eiffel:</strong> ~1h a pé · ~20-25 min de metrô (linha 13, direto/quase direto)<br />
+<strong>Segurança nas redondezas:</strong> <strong>atenção, aqui é literalmente fora de Paris</strong> — Vanves é um subúrbio ao sul, na Hauts-de-Seine, ~25-30 min de metrô até o centro. Dito isso, é uma região <strong>muito tranquila e segura</strong> — bairro residencial, sem nenhum histórico de insegurança nas pesquisas. É o tipo de subúrbio "família francesa de classe média", não um subúrbio problemático.<br />
+- 🟢 Nota 8,3/10 (992 avaliações) e 7,9/10 em outro agregador — consistentemente bem avaliado<br />
+- 🟢 Tem <strong>kitchenette completa</strong> (fogão, micro-ondas, geladeira)<br />
+- 🟢 "Very good hotel and very professional", "room clean and staff helpful"<br />
+- 🟡 "Bed was not comfortable" (reclamação recorrente, ~10 reviews)<br />
+- 🟡 Sem staff na recepção das 21h às 7h (é aparthotel, funciona por check-in automatizado nesse horário)<br />
+- 🟡 Um review isolado bem negativo: "drab, dull, grey" (mas é minoria clara)</p>
+<p><strong>Veredito:</strong> fica fora de Paris, então soma ~25-30 min de metrô a cada trajeto (ida e volta) comparado a ficar dentro da cidade — pesem isso no cansaço da viagem. Em compensação, é uma das regiões mais tranquilas e seguras de toda a lista, com boa relação custo-benefício e cozinha própria.</p>
+<hr />
+<h2 class="group-yellow">🟡 GRUPO 2 — Ok, mas com reclamações reais que vocês devem saber</h2>
+<h3>7. Rose Bourbon — R$3.600 (15º arr., acima do orçamento)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/23000000/22170000/22165100/22165022/dff5a29e.jpg" alt="Rose Bourbon" loading="lazy"></div>
+<p><strong>Endereço:</strong> 53 Rue de l'Église, 75015 Paris<br />
+<strong>Metrô mais próximo:</strong> Félix Faure (3 min a pé) / Charles Michels (6 min a pé)<br />
+<strong>Até o Louvre:</strong> ~1h a pé · ~25 min de metrô (1 baldeação)<br />
+<strong>Até a Torre Eiffel:</strong> ~25-30 min a pé · ~10-12 min de metrô (bem perto!)<br />
+<strong>Segurança nas redondezas:</strong> nenhum ponto de risco identificado. 15º arrondissement é um dos bairros mais seguros e residenciais de Paris.</p>
+<p><strong>Reclamações reais de isolamento acústico (confirmando o que vocês mencionaram):</strong><br />
+- 🔴 "Chambre très mal insonorisée et exiguë": <em>"Você ouve os vizinhos como se estivesse no quarto deles, portas batendo desde as 7h"</em><br />
+- 🔴 Outro relato: paredes finas, dá pra ouvir movimento na escada e quartos vizinhos — resolveu com tampão de ouvido<br />
+- 🔴 Cobrança errada de quarto maior (reservou 16m², deram 11m², cobraram o preço do maior)<br />
+- 🟢 Decoração art déco muito elogiada, staff extremamente elogiado na maioria esmagadora das reviews<br />
+- 🟢 Boa localização — perto de metrô, mercado, restaurantes</p>
+<p><strong>Veredito:</strong> melhor experiência geral relatada (decoração, staff, localização), mas o isolamento acústico é uma reclamação estrutural recorrente — se silêncio é prioridade alta, considerem isso.</p>
+<hr />
+<h3>8. Kyriad Paris 18 - Porte de Clignancourt / Montmartre — R$2.700–2.900 (18º arr.)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/8000000/7630000/7621200/7621130/7c42ef80.jpg" alt="Kyriad Paris 18 - Porte de Clignancourt / Montmartre" loading="lazy"></div>
+<p><strong>Endereço:</strong> 78 Boulevard Ornano, 75018 Paris<br />
+<strong>Metrô mais próximo:</strong> Porte de Clignancourt (muito perto, ~2 min)<br />
+<strong>Até o Louvre:</strong> ~1h a pé · ~18-20 min de metrô (linha 4, direto)<br />
+<strong>Até a Torre Eiffel:</strong> ~40 min de metrô (2 baldeações)<br />
+<strong>Segurança nas redondezas:</strong> fica na divisa com <strong>Château Rouge e Goutte d'Or</strong> — os bairros do alerta de segurança citado acima. A Porte de Clignancourt em si (mercado de pulgas) é mais tranquila de dia; a caminhada entre ali e o Sacré-Cœur passa perto de áreas sensíveis. Não achei relato de ponte/viaduto perigoso específico aqui — o risco é mais de furto/abordagem de rua do que estrutura física.<br />
+- 🟢 Reviews majoritariamente boas<br />
+- 🟡 "No coração de Montmartre" é meio exagero de marketing — é a ponta norte, mais longe do Sacré-Cœur turístico</p>
+<hr />
+<h3>9. ibis Paris Ornano Montmartre Nord 18ème — R$2.900 (18º arr.)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/1000000/580000/578700/578608/99a14f36.jpg" alt="ibis Paris Ornano Montmartre Nord 18ème" loading="lazy"></div>
+<p><strong>Endereço:</strong> 70 Bis Boulevard Ornano, 75018 Paris<br />
+<strong>Metrô mais próximo:</strong> Porte de Clignancourt (2 min a pé)<br />
+<strong>Até o Louvre:</strong> ~1h a pé · ~18-20 min de metrô (linha 4, direto)<br />
+<strong>Até a Torre Eiffel:</strong> ~40 min de metrô (2 baldeações)<br />
+<strong>Segurança nas redondezas:</strong> praticamente vizinho do Kyriad acima — mesmas considerações.<br />
+- 🟢 Reviews boas, sem reclamação de segurança direta<br />
+- 🟡 Caminhada considerável até o Sacré-Cœur/Montmartre turístico (14 min+)</p>
+<hr />
+<h3>10. B&amp;B Hotel Porte des Lilas — R$2.800 (19º/20º arr., divisa)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/9000000/8820000/8811400/8811379/839f4ffe.jpg" alt="B&B Hotel Porte des Lilas" loading="lazy"></div>
+<p><strong>Endereço:</strong> 23 Avenue René Fonck, 75019 Paris<br />
+<strong>Metrô/tram mais próximo:</strong> Porte des Lilas (5-6 min a pé)<br />
+<strong>Até o Louvre:</strong> ~1h10 a pé · ~30 min de metrô (1-2 baldeações)<br />
+<strong>Até a Torre Eiffel:</strong> ~45 min de metrô (2 baldeações)<br />
+<strong>Segurança nas redondezas:</strong> nenhum ponto de risco físico (ponte/viaduto) identificado. Fica na parte leste do 19º, longe da área de Stalingrad. Bairro tranquilo.<br />
+- 🟢 "Great location, friendly staff", "quiet hotel"<br />
+- 🔴 "Hallways smell like urine" (um relato)<br />
+- 🔴 "Basic accommodation with rude and unhelpful staff" — em pelo menos 2 reviews diferentes<br />
+- 🔴 Um review de nota 2/10: "the worst hotel experience in my life. The staff was very snappy and rude"</p>
+<p><strong>Veredito:</strong> segurança da região ok, mas atendimento é loteria — reviews 10/10 e 2/10 convivendo lado a lado.</p>
+<hr />
+<h2 class="group-red">🔴 GRUPO 3 — Eu evitaria fortemente</h2>
+<h3>11. Angleterre Hotel — R$2.700 (18º arr.)</h3><div class="hotel-photo"><img src="https://ak-d.tripcdn.com/images/1ik4d12000t0juxl75B41_R_960_660_R5_D.jpg" alt="Angleterre Hotel" loading="lazy"></div>
+<p><strong>Endereço:</strong> 6 Rue Bervic, 75018 Paris<br />
+<strong>Metrô mais próximo:</strong> Barbès-Rochechouart — <strong>50 metros</strong>. Château Rouge fica a 350m.<br />
+<strong>Até o Louvre:</strong> ~45 min a pé · ~15-18 min de metrô (linha 4, direto)<br />
+<strong>Até a Torre Eiffel:</strong> ~35 min de metrô (2 baldeações)<br />
+<strong>Segurança nas redondezas:</strong> exatamente a área da "zone de sécurité prioritaire" mencionada no início do relatório.<br />
+- 🔴 <em>"That said, the area can feel a bit sketchy at night. I wouldn't say it's unsafe, but you do need to stay aware of your surroundings."</em><br />
+- 🔴 Resumo de IA cruzando milhares de reviews (Kayak): <strong>"Guests generally found the hotel to be poorly located in a sketchy area"</strong><br />
+- 🔴 Nota de "Location" consistentemente a pior categoria avaliada do hotel nos agregadores<br />
+- 🟢 Quarto e staff bem avaliados quando isolados da questão da região</p>
+<p><strong>Veredito: eu evitaria.</strong> A rua e a saída de metrô, literalmente a porta do hotel, ficam dentro da zona mais citada de insegurança de Paris.</p>
+<hr />
+<h3>12. Ibis Budget Paris Porte de la Chapelle - Aréna — R$2.100 (18º arr.)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/75000000/74430000/74422100/74422006/88425fca.jpg" alt="Ibis Budget Paris Porte de la Chapelle - Aréna" loading="lazy"></div>
+<p><strong>Endereço:</strong> 7 Impasse Marteau, 75018 Paris<br />
+<strong>Metrô mais próximo:</strong> Porte de la Chapelle (8 min a pé)<br />
+<strong>Até o Louvre:</strong> ~1h15 a pé · ~25-28 min de metrô (1 baldeação)<br />
+<strong>Até a Torre Eiffel:</strong> ~40-45 min de metrô (2 baldeações)<br />
+<strong>Segurança nas redondezas: aqui está a "ponte perigosa" — confirmado.</strong> A famosa <strong>"Colline du crack"</strong> é literalmente um talude ao lado do viaduto/interseção rodoviária da Porte de la Chapelle (onde a A1 encontra o périphérique) — a poucos minutos a pé do hotel. Matérias jornalísticas (inclusive de 2025/2026) confirmam que o acampamento de tráfico e uso de crack continua se reformando nessa área desde os anos 2000, apesar de mais de 15 despejos policiais. À noite, relatos descrevem "afluência" de usuários e vendedores vigiando a entrada da área.<br />
+- 🔴 Resumo de reviews: <strong>"Location was often described as unsafe or unattractive"</strong><br />
+- 🟢 Hotel em si foi renovado em 2021, com reviews internas boas (quarto, limpeza)<br />
+- 🟡 A nova Adidas Arena (2024) está tentando revitalizar a área, mas não elimina o problema</p>
+<p><strong>Veredito: eu evitaria totalmente</strong>, especialmente à noite. Provavelmente o hotel da lista que mais bate com o alerta que vocês receberam sobre uma ponte perigosa.</p>
+<hr />
+<h3>13. Altona — R$2.300 (10º arr.)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/1000000/1000000/994400/994347/w5568h3478x0y0-ac9290b7.jpg" alt="Altona" loading="lazy"></div>
+<p><strong>Endereço:</strong> 166 Rue du Faubourg-Poissonnière, 75010 Paris<br />
+<strong>Metrô mais próximo:</strong> Barbès-Rochechouart (próximo) / Gare du Nord (7 min a pé) / Château Rouge (7 min a pé)<br />
+<strong>Até o Louvre:</strong> ~40 min a pé · ~15 min de metrô (linha 4/5)<br />
+<strong>Até a Torre Eiffel:</strong> ~35 min de metrô (2 baldeações)<br />
+<strong>Segurança nas redondezas:</strong> área de transição — não é tão "na cara do problema" quanto o Angleterre (que é a 50m da estação), mas ainda na zona de influência de Barbès/Gare du Nord/Château Rouge. Não identifiquei ponte/viaduto de risco específico aqui, o risco é mais de entorno de rua e mendicância/pequenos golpes.<br />
+- 🟢 Reviews majoritariamente positivas sobre o hotel em si<br />
+- 🟡 Nenhuma reclamação explícita de segurança nas reviews, mas cai na área de atenção redobrada</p>
+<p><strong>Veredito:</strong> não é tão grave quanto o Angleterre, mas ainda peço cuidado à noite.</p>
+<hr />
+<h2 class="group-yellow">🟡 GRUPO 4 — Sem red flags graves, hotel em si mediano</h2>
+<h3>14. ibis Paris Porte de Montreuil — R$2.400 (20º arr.)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/1000000/90000/83100/83022/b71f59ae.jpg" alt="ibis Paris Porte de Montreuil" loading="lazy"></div>
+<p><strong>Endereço:</strong> 2 Avenue du Professeur André Lemierre, 75020 Paris<br />
+<strong>Metrô mais próximo:</strong> Porte de Montreuil (5 min a pé)<br />
+<strong>Até o Louvre:</strong> ~1h10 a pé · ~28 min de metrô (linha 9, 1 baldeação)<br />
+<strong>Até a Torre Eiffel:</strong> ~40 min de metrô (2 baldeações)<br />
+<strong>Segurança nas redondezas:</strong> nenhum red flag encontrado. É a região do mercado de pulgas de Montreuil (mais autêntico e menos turístico que o de Saint-Ouen), bairro em gentrificação, tranquilo. Nenhuma ponte/viaduto de risco identificado.<br />
+- 🔴 "Rooms bit small and tight", reclamações de banheiro<br />
+- 🟡 Nota mais baixa entre os "ibis" da lista<br />
+- 🟢 Nenhum problema de segurança relatado</p>
+<p><strong>Veredito:</strong> região segura, mas o hotel decepciona um pouco mais que os outros ibis.</p>
+<hr />
+<h3>15. Kyriad Paris 18 - Porte de Clignancourt (2ª listagem, R$2.900)</h3><div class="hotel-photo"><img src="https://images.trvl-media.com/lodging/8000000/7630000/7621200/7621130/7c42ef80.jpg" alt="Kyriad Paris 18 - Porte de Clignancourt (2ª listagem)" loading="lazy"></div>
+<p>Mesmo hotel do item 8 — provavelmente tipo de quarto diferente. Mesmas considerações.</p>
+<hr />
+<h2 class="group-blue">📊 Tabela-resumo — todos os 15 hotéis lado a lado</h2>
+<table>
+<thead>
+<tr>
+<th>Hotel</th>
+<th>Preço</th>
+<th>Arr.</th>
+<th>Metrô + tempo a pé</th>
+<th>Louvre (a pé / metrô)</th>
+<th>Torre Eiffel (a pé / metrô)</th>
+<th>Segurança região</th>
+<th>Veredito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hôtel Jardin des Plantes</td>
+<td>R$3.050</td>
+<td>5º</td>
+<td>Place Monge, 3min</td>
+<td>25min / 12-15min</td>
+<td>65-70min / 30min</td>
+<td>🟢 Segura</td>
+<td>Ótima localização, reviews de limpeza ruins</td>
+</tr>
+<tr>
+<td>ibis Nation Davout</td>
+<td>R$2.850</td>
+<td>20º</td>
+<td>Porte de Montreuil, 3min</td>
+<td>1h10 / 25-28min</td>
+<td>— / 35-40min</td>
+<td>🟢 Segura</td>
+<td>Sem sobressaltos</td>
+</tr>
+<tr>
+<td>Ibis Budget La Villette</td>
+<td>R$2.200</td>
+<td>19º</td>
+<td>Laumière, 3min</td>
+<td>50min / 25min</td>
+<td>— / 40-45min</td>
+<td>🟢 Segura*</td>
+<td>Ótimo custo-benefício</td>
+</tr>
+<tr>
+<td>Odalys City XVII</td>
+<td>R$2.700</td>
+<td>17º</td>
+<td>Épinettes, 6min</td>
+<td>55min / 25-28min</td>
+<td>— / 30min</td>
+<td>🟢 Segura</td>
+<td>Kitchenette, mais afastado</td>
+</tr>
+<tr>
+<td>ibis Maine Montparnasse</td>
+<td>R$3.400</td>
+<td>14º</td>
+<td>Pernety, 3min</td>
+<td>50min / 20min</td>
+<td>40min / 20-25min</td>
+<td>🟢 Segura</td>
+<td>Melhor conjunto de reviews</td>
+</tr>
+<tr>
+<td>Adagio Vanves</td>
+<td>R$2.700</td>
+<td>Fora de Paris</td>
+<td>Malakoff, poucos min</td>
+<td>— / 30min</td>
+<td>1h / 20-25min</td>
+<td>🟢 Muito segura</td>
+<td>Fora de Paris, ~25-30min extra por trajeto</td>
+</tr>
+<tr>
+<td>Rose Bourbon</td>
+<td>R$3.600</td>
+<td>15º</td>
+<td>Félix Faure, 3min</td>
+<td>1h / 25min</td>
+<td>25-30min / 10-12min</td>
+<td>🟢 Segura</td>
+<td>Lindo, mas paredes finas</td>
+</tr>
+<tr>
+<td>Kyriad Clignancourt</td>
+<td>R$2.700-2.900</td>
+<td>18º</td>
+<td>Porte de Clignancourt, 2min</td>
+<td>1h / 18-20min</td>
+<td>— / 40min</td>
+<td>🟡 Atenção</td>
+<td>Divisa com área sensível</td>
+</tr>
+<tr>
+<td>ibis Ornano</td>
+<td>R$2.900</td>
+<td>18º</td>
+<td>Porte de Clignancourt, 2min</td>
+<td>1h / 18-20min</td>
+<td>— / 40min</td>
+<td>🟡 Atenção</td>
+<td>Mesma região do Kyriad</td>
+</tr>
+<tr>
+<td>B&amp;B Porte des Lilas</td>
+<td>R$2.800</td>
+<td>19º/20º</td>
+<td>Porte des Lilas, 5-6min</td>
+<td>1h10 / 30min</td>
+<td>— / 45min</td>
+<td>🟢 Segura</td>
+<td>Staff inconsistente</td>
+</tr>
+<tr>
+<td><strong>Angleterre Hotel</strong></td>
+<td>R$2.700</td>
+<td>18º</td>
+<td>Barbès-Rochechouart, 50m</td>
+<td>45min / 15-18min</td>
+<td>— / 35min</td>
+<td>🔴 <strong>Evitar</strong></td>
+<td>50m da zona de risco</td>
+</tr>
+<tr>
+<td><strong>Ibis Budget Porte de la Chapelle</strong></td>
+<td>R$2.100</td>
+<td>18º</td>
+<td>Porte de la Chapelle, 8min</td>
+<td>1h15 / 25-28min</td>
+<td>— / 40-45min</td>
+<td>🔴 <strong>Evitar</strong></td>
+<td>Perto da "Colline du crack"</td>
+</tr>
+<tr>
+<td>Altona</td>
+<td>R$2.300</td>
+<td>10º</td>
+<td>Barbès/Gare du Nord, 7min</td>
+<td>40min / 15min</td>
+<td>— / 35min</td>
+<td>🟡 Atenção</td>
+<td>Zona de transição</td>
+</tr>
+<tr>
+<td>ibis Porte de Montreuil</td>
+<td>R$2.400</td>
+<td>20º</td>
+<td>Porte de Montreuil, 5min</td>
+<td>1h10 / 28min</td>
+<td>— / 40min</td>
+<td>🟢 Segura</td>
+<td>Hotel mediano</td>
+</tr>
+</tbody>
+</table>
+<p>*Ibis Budget La Villette: segura desde que evitem caminhar em direção a Stalingrad/sul à noite.</p>
+<hr />
+<h2 class="group-default">Minha recomendação final</h2>
+<table>
+<thead>
+<tr>
+<th>Prioridade</th>
+<th>Hotel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Melhor conjunto (segurança + reviews)</strong></td>
+<td>ibis Maine Montparnasse (R$3.400) ou ibis Nation Davout (R$2.850)</td>
+</tr>
+<tr>
+<td><strong>Melhor dentro do teto exato, com boa segurança</strong></td>
+<td>Ibis Budget La Villette 19ème (R$2.200)</td>
+</tr>
+<tr>
+<td><strong>Se quiserem cozinhar e economizar, tranquilo</strong></td>
+<td>Adagio Vanves (R$2.700) — mas somem o tempo extra de deslocamento</td>
+</tr>
+<tr>
+<td><strong>Se quiserem esticar por experiência</strong></td>
+<td>Rose Bourbon (R$3.600) — região segura, decoração linda, só usem tampão de ouvido</td>
+</tr>
+<tr>
+<td><strong>Evitar</strong></td>
+<td>Angleterre Hotel, Ibis Budget Porte de la Chapelle</td>
+</tr>
+<tr>
+<td><strong>Cuidado extra à noite, mas não descartaria</strong></td>
+<td>Altona, Kyriad/ibis Ornano (Clignancourt)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
